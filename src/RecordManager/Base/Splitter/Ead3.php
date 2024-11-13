@@ -207,7 +207,7 @@ class Ead3 extends Ead
             'sequence',
             str_pad((string)$this->currentPos, 7, '0', STR_PAD_LEFT)
         );
-        
+
         if ($this->archiveType) {
             $absolute->addAttribute('type', $this->archiveType);
         }
