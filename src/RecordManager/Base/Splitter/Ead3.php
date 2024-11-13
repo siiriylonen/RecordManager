@@ -68,6 +68,13 @@ class Ead3 extends Ead
     ];
 
     /**
+     * Archive type
+     *
+     * @var string
+     */
+    protected $archiveType = null;
+
+    /**
      * Initializer
      *
      * @param array $params Splitter configuration
@@ -200,6 +207,10 @@ class Ead3 extends Ead
             'sequence',
             str_pad((string)$this->currentPos, 7, '0', STR_PAD_LEFT)
         );
+        
+        if ($this->archiveType) {
+            $absolute->addAttribute('type', $this->archiveType);
+        }
 
         if ($this->archiveSubTitle) {
             $absolute->addAttribute('subtitle', $this->archiveSubTitle);
