@@ -68,13 +68,6 @@ class Ead3 extends Ead
     ];
 
     /**
-     * Archive type
-     *
-     * @var string
-     */
-    protected $archiveType = null;
-
-    /**
      * Initializer
      *
      * @param array $params Splitter configuration
