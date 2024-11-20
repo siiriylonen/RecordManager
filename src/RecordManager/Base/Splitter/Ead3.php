@@ -163,7 +163,7 @@ class Ead3 extends Ead
             }
         }
 
-        $this->appendXML($record, $this->addAdditionalData($record, $original));
+        $this->addAdditionalData($record, $original);
 
         return ['metadata' => $record->asXML()];
     }
@@ -196,11 +196,11 @@ class Ead3 extends Ead
      * @param \SimpleXMLElement $record   The record
      * @param \SimpleXMLElement $original The original record
      *
-     * @return \SimpleXMLElement
+     * @return void
      */
-    protected function addAdditionalData($record, $original): \SimpleXMLElement
+    protected function addAdditionalData(&$record, $original): void
     {
-        $addData = simplexml_load_string('<add-data/>');
+        $addData = $record->addChild('add-data');
         $unitId = '';
 
         if ($record->did->unitid) {
@@ -335,6 +335,5 @@ class Ead3 extends Ead
                 $parent->addAttribute('level', 'archive');
             }
         }
-        return $addData;
     }
 }
