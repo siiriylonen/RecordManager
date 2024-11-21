@@ -198,7 +198,7 @@ class Ead3 extends Ead
      *
      * @return void
      */
-    protected function addAdditionalData(&$record, $original): void
+    protected function addAdditionalData(&$record, &$original): void
     {
         $addData = $record->addChild('add-data');
         $unitId = '';
